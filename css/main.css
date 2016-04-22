@@ -1,0 +1,358 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body {
+    padding-bottom: 20px;
+}
+a {
+    color: #498d94;
+    font-weight: bold;
+    text-shadow: 1px 1px #53c78c;
+}
+#begging {
+    margin: -100px 0 0 -200px;
+    width: 200%;
+    height: 200px;
+    position: fixed;
+    z-index: -300;
+    background: linear-gradient(to bottom, #d8f2e7, #dcf9de, #fff);
+}
+#logga {
+    z-index: 1270;
+    background-color: #497c83;
+    height: 30px;
+    min-width: 150px;
+    text-align: center;
+    cursor: pointer;
+    position: fixed;
+    border-radius: 0 0 45px 45px;
+    font-family: 'Calligraffitti', cursive;
+    font-size: 1.5em;
+    color: #e4f4d1;
+    font-weight: bold;
+    width: calc(100% - 210px);
+}
+#flyttaPoDig {
+    height: 50px;
+}
+.menuitem {
+    width: 100%;
+    min-width: 70px;
+    height: 30px;
+    border: solid 3px #000;
+    background-color: #1fb7bb;
+    border-radius: 6px 6px 0 0;
+    text-align: center;
+    font-size: 17px;
+    cursor: pointer;
+    list-style: none;
+    color: white;
+    transition: all .3s ease-in-out;
+}
+.menuitem:hover {
+    transform: scale(1.1);
+    filter: none;
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -ms-filter: blur(0px);
+    filter: progid: DXImageTransform.Microsoft.Blur(PixelRadius='0');
+    background-color: #1c6778;
+}
+.menuitem:active {
+    background-color: #155b6b;
+}
+.submenuitem {
+    height: 40px;
+    width: 100%;
+    min-width: 70px;
+    border: solid 2px #000;
+    background-color: #2e5353;
+    text-align: center;
+    font-size: 17px;
+    cursor: pointer;
+    list-style: none;
+    color: white;
+    transition: all .3s ease-in-out;
+    /*display: none;*/
+}
+.submenuitem:hover {
+    transform: scale(1.1);
+    filter: none;
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -ms-filter: blur(0px);
+    filter: progid: DXImageTransform.Microsoft.Blur(PixelRadius='0');
+    background-color: #4b7d7e;
+}
+.submenuitem:active {
+    background-color: #3c8385;
+}
+.bestis {
+    margin: 10px;
+    padding: 16px;
+    display: block;
+    border: 1px solid #ccc;
+    color: #454545;
+    text-decoration: none;
+    line-height: 1.3em;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .3);
+    -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .3);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .3);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.bo {
+    min-height: 290px;
+    height: auto;
+    transition: all .2s ease-in-out;
+    background: #ffffff;
+}
+.to {
+    transform: scale(1.2);
+    filter: none;
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -ms-filter: blur(0px);
+    filter: progid: DXImageTransform.Microsoft.Blur(PixelRadius='0');
+    z-index: 500;
+    position: absolute;
+    background: #fff6f9;
+}
+#goTo {
+    background-color: #141616;
+    width: 25%;
+    height: 100%;
+    padding: 15px;
+    position: fixed;
+    display: none;
+    margin: 20px 0 0 0;
+    z-index: 1300;
+    overflow-y: auto;
+}
+::-webkit-scrollbar {
+      width: 15px;
+} /* this targets the default scrollbar (compulsory) */
+::-webkit-scrollbar-track {
+      background-color: #528f88;
+} /* the new scrollbar will have a flat appearance with the set background color */
+
+::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0.2);
+} /* this will style the thumb, ignoring the track */
+
+::-webkit-scrollbar-button {
+      background-color: #4596a8;
+} /* optionally, you can style the top and the bottom buttons (left and right for horizontal bars) */
+
+::-webkit-scrollbar-corner {
+      background-color: black;
+} /* if both the vertical and the horizontal bars appear, then perhaps the right bottom corner also needs to be styled */
+#menuBut {
+    z-index: 1302;
+    background-color: #497c83;
+    min-height: 30px;
+    margin: -20px 0 0 0;
+    width: 25%;
+    min-width: 150px;
+    text-align: center;
+    color: #e4f4d1;
+    font-weight: bold;
+    cursor: pointer;
+    position: fixed;
+    border-radius: 0 0 0 15px;
+}
+#menuBut:hover {
+    background-color: #78a9b0;
+}
+.expanded {
+    height: auto;
+}
+.hodor {
+    overflow: hidden;
+    height: auto;
+    max-height: 70px;
+    float: left;
+}
+.babon {
+    font-weight: bold;
+    color: #7a7896;
+    float: right;
+}
+.hide {
+    display: none;
+}
+.ImgSiz {
+    width: 80px;
+    float: right;
+    transition: all .5s ease-in-out;
+}
+.ImgSiz:hover {
+    transform: scale(1.4);
+    filter: none;
+}
+.firstImgPc {
+    width: 80%;
+    height: 100%;
+    float: left;
+    border: solid 3px #000;
+}
+.crop {
+    border: solid 3px;
+    max-width: 80px;
+    max-height: 120px;
+    height:auto;
+    width:auto;
+    overflow: hidden;
+    float: left;
+    transition: all .2s ease-in-out;
+}
+.crop:hover {
+    transform: scale(1.7);
+    filter: none;
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -ms-filter: blur(0px);
+    filter: progid: DXImageTransform.Microsoft.Blur(PixelRadius='0');
+}
+.panoram {
+    border: solid 3px;
+    width: 60px;
+    height: 100px;
+    overflow: hidden;
+    float: right;
+}
+.imgLonePage {
+    width: auto;
+    height: 100px;
+}
+.imgLonePage:hover {
+    transition: all .3s ease-in-out;
+    transform: scale(1.1);
+    filter: none;
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -ms-filter: blur(0px);
+    filter: progid: DXImageTransform.Microsoft.Blur(PixelRadius='0');
+}
+.imageS {
+    width: 270px;
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+}
+#articleBar {
+    display: block;
+    z-index: 400;
+}
+#marsipan {
+    z-index: 600;
+    width: 100%;
+    height: 260px;
+    margin-top: 50px;
+    background-color: #cef1d5;
+}
+.price {
+    font-size: 1.3em;
+    color: #e76e2b;
+    font-weight: bold;
+    float: right;
+    cursor: default;
+}
+.usPr {
+    font-size: 3.3em;
+    color: #e76e2b;
+    font-weight: bold;
+    float: left;
+    cursor: default;
+}
+.regPrice {
+    font-weight: bold;
+    float: right;
+    text-align: right;
+    text-decoration: line-through;
+    margin-right: 50px;
+    margin-right: 4px;
+}
+.PrRe {
+    font-size: 1.3em;
+    font-weight: bold;
+    float: left;
+    text-align: right;
+    text-decoration: line-through;
+    margin-right: 50px;
+}
+#articleBar>div>p {
+    text-align: right;
+    font-size: 2.6em;
+    color: #e76e2b;
+    font-weight: bold;
+    cursor: default;
+}
+#articleBar>div>p2 {
+    width: 60%;
+    text-align: left;
+}
+#articleBar>h1 {
+    text-align: center;
+    font-weight: bold;
+    color: #3c6e71;
+}
+.loadingIn {
+    text-align: center;
+    font-size: 9em;
+    color: cornflowerblue;
+    padding: 30px;
+}
+.textBox {
+    width: 70%;
+    margin-top: 20px;
+}
+#buttonSpace {
+    margin: 15px 25px 0 0;
+    float: left;
+    width: 70%;
+}
+#buttonSpace>button {
+    color: white;
+    font-weight: bold;
+    background-color: #72a5ab;
+    margin-left: 15px;
+    width: 130px;
+    height: 60px;
+}
+#buttonSpace>ul {
+    border: solid 0.5px #9ea4a2;
+    width: 400px;
+    height: 200px;
+}
+#buttonSpace>ul>li {
+    background-color: #72a198;
+    margin: 0;
+    border: solid 1px #5b857d;
+    display: inline;
+}
+.bror {
+    font-size: 14px;
+    width: 400px;
+}
+#placeInfoH {
+    width: 400px;
+    height: auto;
+    border: solid 2px;
+    padding: 10px;
+}
+#butToBuy>button {
+    background-color: #a5bad7;
+    color: white;
+    font-weight: bold;
+    height: 80px;
+}
+#butToBuy>button:hover {
+  background-color: #7891b4;
+}
+.joka {
+  display: none;
+  margin-left: 15px;
+}
