@@ -203,21 +203,19 @@ $("#bapido").mouseenter(function() {
     });
 
     /******* start articles *******/
-    var naden = "15630249";
-        console.log('Ska visa utvalda varor ' + naden);
+        console.log('Ska visa utvalda varor ');
 
         var query = {
             "uid": true,
-            "name": true,
+            "name": {sv: true},
             "price": true,
             "images": true,
             "description": true
         };
         var selection = {
-            filters: {
-                '/articlegroup': { in : [ naden ]
-                }
-            }
+          sort: 'created',
+          descending: true,
+          limit: 3
         };
 
         apicall('Article.list', [query, selection], function(result) {
@@ -233,5 +231,5 @@ $("#bapido").mouseenter(function() {
             Badum.innerHTML = '<li class="bestis bo" id="expote" data-uid="' + result.uid + '">' + name1 + '</li>';
             document.getElementById("StartArt").appendChild(Badum);
             /*********/
-          });
+          },function(error) {console.log(error);});
 /* --------------------------------------------- */
