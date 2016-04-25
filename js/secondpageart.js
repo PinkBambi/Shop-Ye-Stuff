@@ -1,3 +1,10 @@
+/********** Click on images to change the shown image ***********/
+function makeMeChange(id) {
+      var src =  document.getElementById(id).src;
+      document.getElementById("mainImg").src = "" + src + "";
+
+    console.log("potstias");
+}
 /********** Lone page for article **********/
 function artPage(artID) {
     console.log('Ska visa artikel', artID);
@@ -59,17 +66,18 @@ function artPage(artID) {
 
         /***** first picture******/
         var wof = document.createElement("div");
-        wof.innerHTML = "<img class='firstImgPc' src='" + arti.images[0] + "'>";
+        wof.innerHTML = "<img id='mainImg' class='firstImgPc' src='" + arti.images[0] + "'>";
         document.getElementById('firstImgPc').appendChild(wof);
         /******** Images *******/
         if (arti.images.length > 1) {
             for (var y = 0; y < arti.images.length; y++) {
                 var rex = arti.images[y];
                 var imgS = document.createElement("div");
-                var imgLoop2 = '<img class="imgLonePage" onclick="makeMeChange()" src="' + rex + '" />';
+                var imgLoop2 = '<img id="bild' + y + '" class="imgLonePage" onclick="makeMeChange(\'bild' + y + '\')" src="' + rex + '" />';
                 imgS.innerHTML = '<div class="panoram">' + imgLoop2 + '</div>';
                 document.getElementById('ImagePlace').appendChild(imgS);
-
+                }
+              }
                 /***** buttons to buy and so on *****/
                 var li3 = '<li class=""><a href="javascript:void(0)" id="TexDet3" data-toggle="tab" aria-expanded="false">Blogga</a></li>';
                 var li2 = '<li class=""><a href="javascript:void(0)" id="TexDet2" data-toggle="tab" aria-expanded="false">Recensioner och omdömen</a></li>';
@@ -78,8 +86,8 @@ function artPage(artID) {
                 var tank = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit tellus eget viverra congue. Integer congue tortor id molestie porttitor. Praesent consequat tempor lacus, a luctus tellus malesuada eu. Nunc dignissim dolor leo. Vivamus aliquet bibendum quam a commodo. Etiam facilisis consequat luctus. Maecenas a luctus sapien. Vestibulum feugiat mauris in eros sagittis, id condimentum orci varius. Proin elementum augue sed leo suscipit sollicitudin.';
                 var infoPlace = '<br><div id="placeInfoH">' + tank + '</div>';
                 document.getElementById('buttonSpace').innerHTML = '<div class="tab-wrapper">' + ul1 + '</div>' + infoPlace;
-            }
-        }
+
+
         /******* Info row change text ********/
         document.getElementById("TexDet").addEventListener("click", function() {
             $('#placeInfoH').text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer blandit tellus eget viverra congue. Integer congue tortor id molestie porttitor. Praesent consequat tempor lacus, a luctus tellus malesuada eu. Nunc dignissim dolor leo. Vivamus aliquet bibendum quam a commodo. Etiam facilisis consequat luctus. Maecenas a luctus sapien. Vestibulum feugiat mauris in eros sagittis, id condimentum orci varius. Proin elementum augue sed leo suscipit sollicitudin.');
@@ -91,12 +99,5 @@ function artPage(artID) {
             $('#placeInfoH').text('Fusce congue eleifend augue at laoreet. Fusce euismod diam ac nisi cursus, eget dictum purus rhoncus. Ut aliquet sem at ipsum fringilla euismod. Donec mollis mi id mollis elementum. Aliquam erat volutpat. Proin gravida turpis consectetur, convallis nulla a, vestibulum eros. Nam libero tortor, congue ac viverra vitae, rhoncus eu arcu.');
         });
     });
-    /********** Click on images to change the shown image ***********/
-    function makeMeChange() {
-        //  document.getElementById('articleBar').innerHTML = '';
-        //  $("div").remove('#marsipan');
-        //  clickedArticleGroup($());
-        console.log("potstias" + rex);
-    }
-    /*********************/
+
 }

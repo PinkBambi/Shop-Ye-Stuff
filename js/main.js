@@ -1,6 +1,6 @@
 console.log('Hej', $);
 
-var webshopid = 32208; //22222, 47675, 11011, 32523, 43309, 32208
+var webshopid = 32523; //22222, 47675, 11011, 32523, 43309, 32208
 
 var api = new $.JsonRpcClient({
     ajaxUrl: 'https://shop.textalk.se/backend/jsonrpc/v1/?webshop=' + webshopid
@@ -134,10 +134,11 @@ function renderArticleList(articlegroupsuid) {
             document.getElementById("plic" + i).appendChild(Badum);
 
             /******* Pictures *******/
+            var tuk;
             if (art.images.length < 3) {
-                var tuk = art.images.length;
+                tuk = art.images.length;
             } else {
-                var tuk = 3;
+               tuk = 3;
             }
             for (var y = 0; y < tuk; y++) {
                 var rex = art.images[y];
@@ -218,18 +219,44 @@ $("#bapido").mouseenter(function() {
           limit: 3
         };
 
-        apicall('Article.list', [query, selection], function(result) {
-            console.log('Got article origami:', result);
+        apicall('Article.list', [query, selection], function(resultm) {
+            console.log('Got article origami:', resultm);
 
-            /********/
-            var Badum = document.createElement("div");
-            var readMoreBut = '<a class="babon" id="te" onclick="exim(this.id)" href="javascript:void(0)">Läs mer...</a>';
-            var text1 = '<div class="hodor" id="hodorte"> ' + result.description.sv + '</div><br>';
-            var images1 = '<div class="imageS" id="imageSte"></div>';
-            var price1 = '<p class="price">' + result.price.current.SEK + ' Kr<p class="regPrice">' + regularPriceDiv + '</p></p><br>';
-            var name1 = '<a href="javascript:void(0)" onclick="artPage(' + result.uid + ')">' + result.name.sv + '</a>' + price1 + images1 + text1 + readMoreBut;
-            Badum.innerHTML = '<li class="bestis bo" id="expote" data-uid="' + result.uid + '">' + name1 + '</li>';
-            document.getElementById("StartArt").appendChild(Badum);
-            /*********/
-          },function(error) {console.log(error);});
+            for(var i = 0; i <= resultm.length - 1; i++) {
+            //  console.log("Så det går så här: " , resultm[i].name.sv);
+              var dump = resultm[i];
+              /***** if there is a price difference from normal *****/
+              var prisReg = dump.price.regular.SEK;
+              var regularPriceDiv = '';
+              if (dump.price.regular.SEK != dump.price.current.SEK) {
+                  regularPriceDiv = prisReg + " kr";
+              }
+              /**********/
+              var Badum = document.createElement("div");
+              var readMoreBut = '<a class="babon" id="' + i + '" onclick="exim(this.id)" href="javascript:void(0)">Läs mer...</a>';
+              var text1 = '<div class="hodor" id="hodor' + i + '"> ' + dump.description.sv + '</div><br>';
+              var images1 = '<div class="imageS" id="imageS' + i + '"></div>';
+              var price1 = '<p class="price">' + dump.price.current.SEK + ' Kr<p class="regPrice">' + regularPriceDiv + '</p></p><br>';
+              var name1 = '<a href="javascript:void(0)" onclick="artPage(' + dump.uid + ')">' + dump.name.sv + '</a>' + price1 + images1 + text1 + readMoreBut;
+              Badum.innerHTML = '<div class="col-md-4"><li class="bestis bo" id="expo' + i + '" data-uid="' + dump.uid + '">' + name1 + '</li></div>';
+              document.getElementById("StartArt").appendChild(Badum);
+
+              /******* Pictures *******/
+              var tuk;
+              if (dump.images.length < 3) {
+                  tuk = dump.images.length;
+              } else {
+                 tuk = 3;
+              }
+              for (var y = 0; y < tuk; y++) {
+                  var rex = dump.images[y];
+                  var imgS = document.createElement("div");
+                  var imgLoop = '<div class="crop"><img class="ImgSiz" src="' + rex + '" /></div>';
+                  imgS.innerHTML = '<a href="javascript:void(0)" onclick="artPage(' + dump.uid + ')">' + imgLoop + '</a>';
+                  document.getElementById('imageS' + i).appendChild(imgS);
+              }
+          }
+
+          },function(error) {console.log(error);
+        });
 /* --------------------------------------------- */
