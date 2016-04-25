@@ -19,6 +19,7 @@ a {
     background: linear-gradient(to bottom, #d8f2e7, #dcf9de, #fff);
 }
 #logga {
+    margin: 0 100px 0 100px;
     z-index: 1270;
     background-color: #497c83;
     height: 30px;
@@ -26,7 +27,7 @@ a {
     text-align: center;
     cursor: pointer;
     position: fixed;
-    border-radius: 0 0 45px 45px;
+    border-radius: 0 0 85px 85px;
     font-family: 'Calligraffitti', cursive;
     font-size: 1.5em;
     color: #e4f4d1;
@@ -153,15 +154,15 @@ a {
     z-index: 1302;
     background-color: #497c83;
     min-height: 30px;
-    margin: -20px 0 0 0;
-    width: 25%;
+    margin: -20px 0 0 -10px;
+    width: 26%;
     min-width: 150px;
     text-align: center;
     color: #e4f4d1;
     font-weight: bold;
     cursor: pointer;
     position: fixed;
-    border-radius: 0 0 0 15px;
+    border-radius: 0 0 0 45px;
 }
 #menuBut:hover {
     background-color: #78a9b0;
