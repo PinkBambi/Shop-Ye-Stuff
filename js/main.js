@@ -195,23 +195,6 @@ $(document).mouseup(function(e) {
     }
 });
 /*****************************************/
-/*
-document.getElementById("bapido").addEventListener("mouseover", function() {
-  var $submenuitem = $('.joka'),
-   $parento = $submenuitem.parent();
-  $parento.on("mouseover",
-      function() {
-        console.log("in");
-          $submenuitem.css('display', 'block');
-      });
-      $parento.on("mouseout",
-          function() {
-              console.log("ut");
-              $submenuitem.css('display', 'none');
-          });
-});
-**************/
-
 
 $("#bapido").mouseenter(function() {
         $('.firstU').children().css('display', 'block');
@@ -219,5 +202,36 @@ $("#bapido").mouseenter(function() {
         $('.A').css('display', 'none');
     });
 
+    /******* start articles *******/
+    var naden = "15630249";
+        console.log('Ska visa utvalda varor ' + naden);
 
+        var query = {
+            "uid": true,
+            "name": true,
+            "price": true,
+            "images": true,
+            "description": true
+        };
+        var selection = {
+            filters: {
+                '/articlegroup': { in : [ naden ]
+                }
+            }
+        };
+
+        apicall('Article.list', [query, selection], function(result) {
+            console.log('Got article origami:', result);
+
+            /********/
+            var Badum = document.createElement("div");
+            var readMoreBut = '<a class="babon" id="te" onclick="exim(this.id)" href="javascript:void(0)">Läs mer...</a>';
+            var text1 = '<div class="hodor" id="hodorte"> ' + result.description.sv + '</div><br>';
+            var images1 = '<div class="imageS" id="imageSte"></div>';
+            var price1 = '<p class="price">' + result.price.current.SEK + ' Kr<p class="regPrice">' + regularPriceDiv + '</p></p><br>';
+            var name1 = '<a href="javascript:void(0)" onclick="artPage(' + result.uid + ')">' + result.name.sv + '</a>' + price1 + images1 + text1 + readMoreBut;
+            Badum.innerHTML = '<li class="bestis bo" id="expote" data-uid="' + result.uid + '">' + name1 + '</li>';
+            document.getElementById("StartArt").appendChild(Badum);
+            /*********/
+          });
 /* --------------------------------------------- */
